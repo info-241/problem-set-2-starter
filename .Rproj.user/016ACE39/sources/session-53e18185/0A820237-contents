@@ -1,0 +1,101 @@
+# Working with Hajj Data 
+
+```{r} 
+library(testthat) 
+library(data.table)
+``` 
+
+To begin the analysis section of this homework, let's focus our attention the survey respondent's views towards other people. These are the sets of variables that are named `views_about_*` and include Saudis, Indonesians, Turks, Africans, Europeans, and Chinese. 
+
+## State a Sharp Null Hypothesis
+
+What is an appropriate sharp null hypothesis for this study? 
+
+> [Fill this in.]
+
+Now that you have stated this sharp null hypothesis, do you think that it *could* be possible that this sharp null is actually true? Why or why not? 
+
+> [Fill this in.]
+
+
+## Load Data 
+
+To begin, load the data. Note that if this is the first time that you've run the code, you're going to have to actually figure out how to run the code that is in `./src/convert_data.R`. Once you have done this task, you can expect the following code to run. 
+
+```{r load hajj data} 
+d <- fread(here("data", "processed", "hajj_public.csv"))
+```
+
+## New Variable 
+
+To begin, create a new variable that contains the average of the views toward the other groups. Call this new variable `average_views`. 
+
+```{r create average views}
+
+```
+
+## Compute the Hajj's Effect 
+
+Using the data that you have just created, group the data by `won_lottery` and report whether views about others are generally more positive or negative among lottery winners or lottery non-winners. 
+
+```{r compute hajj effect}
+
+```
+
+> [Fill this in.]
+
+Is any effect that you observe relatively "large" or relatively "small"? To answer this, you might want to consider either the range that the variable's measure; or, the amount of dispersion in the variable, or some other measure that gives your audience an understanding of the size of the effect in context. 
+
+```{r more context for effect size}
+
+```
+
+> [Fill this in.]
+
+## Estimates of Uncertainty
+
+If we know the size of the effect in context, our next question is whether this is the type of effect that could have been genereated by random chance. That is, we need to know the probability of observing an effect of this size if the sharp null hypothesis were to be true. 
+
+To do this, conduct 10,000 simulated random assignments under the sharp null hypothesis to find out. Do not just copy the code from the async, think about how to write this yourself.
+
+```{r hajj randomization inference, include=TRUE}
+## do your work to conduct the randomization inference here.
+## as a reminder, RI will randomly permute / assign the treatment variable
+## and compute the test-statistic (i.e. mean difference) for each permutation
+## 
+## this should be a numeric vector that has a length equal to the number 
+## of RI permutations you ran
+
+hajj_ri_distribution <- 'fill this in' 
+```
+
+# One-sided test 
+How many of the simulated random assignments generate an estimated ATE that is at least as large as the actual estimate of the ATE? 
+
+Conduct your work in the code chunk below, saving the results into `hajj_count_larger`. Support your coding with a narrative description that describes these statistical results in language for a reader. 
+
+```{r hajj_count_larger, include=TRUE}
+hajj_count_larger
+```
+
+> [Fill this in.]
+
+# One-sided p-value
+If there are `r hajj_count_larger` simulated random assignments that generate an estimated ATE that is at least as large as the actual estimate of the ATE, what is the one-sided p-value? Write code and a narrative description of your results following your code. 
+
+```{r hajj_one_sided_p_value, include=TRUE}
+
+```
+
+> [Fill this in.]
+
+## Two-sided p-value 
+
+Now, conduct a similar test, but for a two-sided p-value. You can either use two tests, one for larger than and another for smaller than; or, you can use an absolute value (`abs`). Both write the code in the following chunk, and include a narrative description of the result following your code. 
+
+```{r hajj two-tailed p-value, include=TRUE}
+# length 1 numeric vector
+hajj_two_tailed_p_value <- 'fill this in'  
+```
+
+> [Fill this in.]

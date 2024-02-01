@@ -1,0 +1,26 @@
+{
+    "id": "1FF64F86",
+    "path": "~/iSchool/experiments/homework/problem-set-2-starter/src/convert_data.R",
+    "project_path": "src/convert_data.R",
+    "type": "r_source",
+    "hash": "870752748",
+    "contents": "",
+    "dirty": false,
+    "created": 1706825302981.0,
+    "source_on_save": false,
+    "relative_order": 8,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "17,60",
+        "scrollLine": "10"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1706825418,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1706825418746,
+    "read_only": false,
+    "read_only_alternatives": []
+}

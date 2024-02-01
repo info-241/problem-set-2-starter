@@ -15,6 +15,7 @@ d <- d %>%
     ## views about religious practice 
     regarded_as_religious   = x_s14aq10, 
     ## views about groups of peoples 
+    ## ranging from +2 (very positive) to -2 (very negative)
     views_about_saudis      = x_s15cq5, 
     views_about_indonesians = x_s15cq6, 
     views_about_turks       = x_s15cq7, 
