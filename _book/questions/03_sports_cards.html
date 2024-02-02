@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>INFO 241: Problem Set 2 - Power Analysis</title>
+<title>INFO 241: Problem Set 2 - Sports Cards</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../questions/02_sports_cards.html" rel="prev">
+<link href="../questions/04_power_analysis.html" rel="next">
+<link href="../questions/02_paper_analysis.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../questions/03_power_analysis.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Power Analysis</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../questions/03_sports_cards.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sports Cards</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -152,14 +153,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../questions/02_sports_cards.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sports Cards</span></span></a>
+  <a href="../questions/02_paper_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Now, Analyze the Hajj Data!</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../questions/03_power_analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Power Analysis</span></span></a>
+  <a href="../questions/03_sports_cards.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sports Cards</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../questions/04_power_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Power Analysis</span></span></a>
   </div>
 </li>
     </ul>
@@ -172,13 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#describe-your-testing-procedure" id="toc-describe-your-testing-procedure" class="nav-link active" data-scroll-target="#describe-your-testing-procedure">Describe your testing procedure</a></li>
-  <li><a href="#suppose-you-only-had-ten-subjects-what-would-you-learn" id="toc-suppose-you-only-had-ten-subjects-what-would-you-learn" class="nav-link" data-scroll-target="#suppose-you-only-had-ten-subjects-what-would-you-learn">Suppose you only had ten subjects, what would you learn</a></li>
-  <li><a href="#with-only-ten-subjects-what-is-your-power" id="toc-with-only-ten-subjects-what-is-your-power" class="nav-link" data-scroll-target="#with-only-ten-subjects-what-is-your-power">With only ten subjects, what is your power?</a></li>
-  <li><a href="#visual-analysis" id="toc-visual-analysis" class="nav-link" data-scroll-target="#visual-analysis">Visual analysis</a></li>
-  <li><a href="#interpret-your-results-given-your-power" id="toc-interpret-your-results-given-your-power" class="nav-link" data-scroll-target="#interpret-your-results-given-your-power">Interpret your results, given your power</a></li>
-  <li><a href="#conduct-a-power-analysis" id="toc-conduct-a-power-analysis" class="nav-link" data-scroll-target="#conduct-a-power-analysis">Conduct a power analysis</a></li>
-  <li><a href="#moar-power" id="toc-moar-power" class="nav-link" data-scroll-target="#moar-power">Moar power!</a></li>
+  <li><a href="#t-test-and-confidence-interval" id="toc-t-test-and-confidence-interval" class="nav-link active" data-scroll-target="#t-test-and-confidence-interval">t-test and confidence interval</a></li>
+  <li><a href="#interpretation-of-confidence-interval" id="toc-interpretation-of-confidence-interval" class="nav-link" data-scroll-target="#interpretation-of-confidence-interval">Interpretation of confidence interval</a></li>
+  <li><a href="#randomization-inference-and-confidence-interval" id="toc-randomization-inference-and-confidence-interval" class="nav-link" data-scroll-target="#randomization-inference-and-confidence-interval">Randomization inference, and confidence interval?</a></li>
+  <li><a href="#compare-regression-and-randomization-inference" id="toc-compare-regression-and-randomization-inference" class="nav-link" data-scroll-target="#compare-regression-and-randomization-inference">Compare regression and randomization inference</a></li>
+  <li><a href="#regression-with-robust-confidence-interval" id="toc-regression-with-robust-confidence-interval" class="nav-link" data-scroll-target="#regression-with-robust-confidence-interval">Regression with robust confidence interval</a></li>
+  <li><a href="#compare-and-contrast-results" id="toc-compare-and-contrast-results" class="nav-link" data-scroll-target="#compare-and-contrast-results">Compare and contrast results</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Power Analysis</h1>
+<h1 class="title">Sports Cards</h1>
 </div>
 
 
@@ -202,71 +208,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Understanding whether your experiment design and data collection strategy are able to reject the null hypothesis <em>when they should</em> is valuable! And, this is not a theoretical value. If your design and data collection cannot reject the null hypothesis, why even run the experiment in the first place?</p>
-<p>The classical formulation of power asks, “Given a test procedure and data, what proportion of the tests I <em>could conduct</em> would reject the null hypothesis?”</p>
-<p>Imagine that you and David Reiley are going to revive the sports card experiment from the previous question. However, because it is for a class project, and because you have already spent all your money on a shiny new data science degree :raised_hands: :money_with_wings: , you are not going to be able to afford to recruit as many participants as before.</p>
-<section id="describe-your-testing-procedure" class="level2">
-<h2 class="anchored" data-anchor-id="describe-your-testing-procedure">Describe your testing procedure</h2>
-<p>Describe a t-test based testing procedure that you might conduct for this experiment. What is your null hypothesis, and what would it take for you to reject this null hypothesis? (This second statement could either be in terms of p-values, or critical values.)</p>
-<blockquote class="blockquote">
-<p>[Fill this in.]</p>
-</blockquote>
-</section>
-<section id="suppose-you-only-had-ten-subjects-what-would-you-learn" class="level2">
-<h2 class="anchored" data-anchor-id="suppose-you-only-had-ten-subjects-what-would-you-learn">Suppose you only had ten subjects, what would you learn</h2>
-<p>Suppose that you are only able to recruit 10 people to be a part of your experiment – 5 in treatment and another 5 in control. Simulate “re-conducting” the sports card experiment once by sampling from the data you previously collected, and conducting the test that you’ve written down in part 1 above. <em>Given the results of this 10 person simulation, would your test reject the null hypothesis?</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be a test object</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>t_test_ten_people <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this experiment, the experimenters invited consumers at a sports card trading show to bid against one other bidder for a pair trading cards. We abstract from the multi-unit-auction details here, and simply state that the treatment auction format was theoretically predicted to produce lower bids than the control auction format. We provide you a relevant subset of data from the experiment.</p>
+<p>In this question, we are asking you to produce p-values and confidence intervals in three different ways:</p>
+<ol type="1">
+<li>Using a <code>t.test</code>;</li>
+<li>Using randomization inference; and,</li>
+<li>Using a regression with robust standard errors.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"list_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="t-test-and-confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="t-test-and-confidence-interval">t-test and confidence interval</h2>
+<p>Using a <code>t.test</code>, compute a 95% confidence interval for the difference between the treatment mean and the control mean. After you conduct your test, write a narrative statement, <em>using inline code evaluation</em> that describes what your tests find, and how you interpret these results. (You should be able to look into <code>str(t_test_cards)</code> to find the pieces that you want to pull to include in your written results.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be the t.test object. Extract pieces from this object </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in-text below the code chunk.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>t_test_cards <span class="ot">&lt;-</span> <span class="st">'fill this in'</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="with-only-ten-subjects-what-is-your-power" class="level2">
-<h2 class="anchored" data-anchor-id="with-only-ten-subjects-what-is-your-power">With only ten subjects, what is your power?</h2>
-<p>Repeat this process – sampling 10 people from your existing data and conducting the appropriate test – one-thousand times. Each time that you conduct this sample and test, pull the p-value from your t-test and store it in an object for later use. <em>Consider whether your sampling process should sample with or without replacement.</em></p>
+<section id="interpretation-of-confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-of-confidence-interval">Interpretation of confidence interval</h2>
+<p>In your own words, what does this confidence interval mean? This can be simple language, but it has to be statistically appropriate language.</p>
+<blockquote class="blockquote">
+<p>[Fill this in.]</p>
+</blockquote>
+</section>
+<section id="randomization-inference-and-confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-inference-and-confidence-interval">Randomization inference, and confidence interval?</h2>
+<p>Conduct a randomization inference process, with <code>n_ri_loops = 1000</code>, using an estimator that you write by hand (i.e.&nbsp;in the same way as earlier questions). On the sharp-null distribution that this process creates, compute the 2.5% quantile and the 97.5% quantile using the function <code>quantile</code> with the appropriate vector passed to the <code>probs</code> argument. This is the randomization-based uncertainty that is generated by your design. After you conduct your test, write a narrative statement of your test results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fill this in with the p-values from your power analysis</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t_test_p_values <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">1000</span>) </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## you can either write a for loop, use an apply method, or use replicate </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## (which is an easy-of-use wrapper to an apply method)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## first, do you work for the randomization inference</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_ri_loops <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cards_ate             <span class="ot">&lt;-</span> <span class="st">'fill this in'</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>cards_ri_distribution <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> <span class="co"># numeric vector of length equal </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                                        <span class="co"># to your number of RI permutations</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cards_ri_quantiles    <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> <span class="co"># there's a built-in to pull these. </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>cards_ri_p_value      <span class="ot">&lt;-</span> <span class="st">'fill this in'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="visual-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="visual-analysis">Visual analysis</h2>
-<p>Use <code>ggplot</code> and either <code>geom_hist()</code> or <code>geom_density()</code> to produce a distribution of your p-values, and describe what you see. <em>What impression does this leave you with about the power of your test?</em></p>
-<blockquote class="blockquote">
-<p>[Fill this in.]</p>
-</blockquote>
-</section>
-<section id="interpret-your-results-given-your-power" class="level2">
-<h2 class="anchored" data-anchor-id="interpret-your-results-given-your-power">Interpret your results, given your power</h2>
-<p>Suppose that you and David were to actually run this experiment and design – sample 10 people, conduct a t-test, and draw a conclusion. <strong>And</strong> suppose that when you get the data back, <strong>lo and behold</strong> it happens to reject the null hypothesis. Given the power that your design possesses, does the result seem reliable? Or, does it seem like it might be a false-positive result?</p>
-<blockquote class="blockquote">
-<p>[Fill this in.]</p>
-</blockquote>
-</section>
-<section id="conduct-a-power-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="conduct-a-power-analysis">Conduct a power analysis</h2>
-<p>F. Apply the decision rule that you wrote down in part 1 above to each of the simulations you have conducted. What proportion of your simulations have rejected your null hypothesis? This is the p-value that this design and testing procedure generates. After you write and execute your code, include a narrative sentence or two about what you see.</p>
+<section id="compare-regression-and-randomization-inference" class="level2">
+<h2 class="anchored" data-anchor-id="compare-regression-and-randomization-inference">Compare regression and randomization inference</h2>
+<p>Do you learn anything different if you regress the outcome on a binary treatment variable? To answer this question, regress <code>bid</code> on a binary variable equal to 0 for the control auction and 1 for the treatment auction and then calculate the 95% confidence interval using <em>classical standard errors</em> (in a moment you will calculate with <em>robust standard errors</em>). There are two ways to do this – you can code them by hand; or use a built-in, <code>confint</code>. After you conduct your test, write a narrative statement of your test results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>t_test_rejects <span class="ot">&lt;-</span> <span class="st">'fill this in'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be a model object, class = 'lm'. </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="moar-power" class="level2">
-<h2 class="anchored" data-anchor-id="moar-power">Moar power!</h2>
-<p>Does buying more sample increase the power of your test? Apply the algorithm you have just written onto different sizes of data. Namely, conduct the exact same process that you have for 10 people, but now conduct the process for every 10% of recruitment size of the original data: Conduct a power analysis with a 10%, 20%, 30%, … 200% sample of the original data. (You could be more granular if you like, perhaps running this task for every 1% of the data).</p>
+<section id="regression-with-robust-confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="regression-with-robust-confidence-interval">Regression with robust confidence interval</h2>
+<p>Calculate the 95% confidence interval using robust standard errors, using the <code>sandwich</code> package. There is a function in <code>lmtest</code> called <code>coefci</code> that can help with this. It is also possible to do this work by hand. After you conduct your test, write a narrative statement of your test results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>percentages_to_sample <span class="ot">&lt;-</span> <span class="st">'fill this in'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be a numeric vector of length 2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cards_robust_ci <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<blockquote class="blockquote">
+<p>[Fill this in.]</p>
+</blockquote>
+</section>
+<section id="compare-and-contrast-results" class="level2">
+<h2 class="anchored" data-anchor-id="compare-and-contrast-results">Compare and contrast results</h2>
+<p>Characterize what you learn from each of these different methods – are the results contingent on the method of analysis that you choose?</p>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
@@ -510,11 +526,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../questions/02_sports_cards.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sports Cards</span></span>
+      <a href="../questions/02_paper_analysis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Now, Analyze the Hajj Data!</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../questions/04_power_analysis.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Power Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

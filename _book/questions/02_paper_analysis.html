@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>INFO 241: Problem Set 2 - Sports Cards</title>
+<title>INFO 241: Problem Set 2 - Now, Analyze the Hajj Data!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../questions/03_power_analysis.html" rel="next">
+<link href="../questions/03_sports_cards.html" rel="next">
 <link href="../questions/01_paper_questions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -96,6 +96,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -108,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../questions/02_sports_cards.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sports Cards</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../questions/02_paper_analysis.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Now, Analyze the Hajj Data!</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,14 +155,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../questions/02_sports_cards.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sports Cards</span></span></a>
+  <a href="../questions/02_paper_analysis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Now, Analyze the Hajj Data!</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../questions/03_power_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Power Analysis</span></span></a>
+  <a href="../questions/03_sports_cards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sports Cards</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../questions/04_power_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Power Analysis</span></span></a>
   </div>
 </li>
     </ul>
@@ -173,12 +181,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#t-test-and-confidence-interval" id="toc-t-test-and-confidence-interval" class="nav-link active" data-scroll-target="#t-test-and-confidence-interval">t-test and confidence interval</a></li>
-  <li><a href="#interpretation-of-confidence-interval" id="toc-interpretation-of-confidence-interval" class="nav-link" data-scroll-target="#interpretation-of-confidence-interval">Interpretation of confidence interval</a></li>
-  <li><a href="#randomization-inference-and-confidence-interval" id="toc-randomization-inference-and-confidence-interval" class="nav-link" data-scroll-target="#randomization-inference-and-confidence-interval">Randomization inference, and confidence interval?</a></li>
-  <li><a href="#compare-regression-and-randomization-inference" id="toc-compare-regression-and-randomization-inference" class="nav-link" data-scroll-target="#compare-regression-and-randomization-inference">Compare regression and randomization inference</a></li>
-  <li><a href="#regression-with-robust-confidence-interval" id="toc-regression-with-robust-confidence-interval" class="nav-link" data-scroll-target="#regression-with-robust-confidence-interval">Regression with robust confidence interval</a></li>
-  <li><a href="#compare-and-contrast-results" id="toc-compare-and-contrast-results" class="nav-link" data-scroll-target="#compare-and-contrast-results">Compare and contrast results</a></li>
+  <li><a href="#state-a-null-hypothesis" id="toc-state-a-null-hypothesis" class="nav-link active" data-scroll-target="#state-a-null-hypothesis">State a null hypothesis</a></li>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">Load the data</a></li>
+  <li><a href="#create-the-average-views" id="toc-create-the-average-views" class="nav-link" data-scroll-target="#create-the-average-views">Create the average views</a></li>
+  <li><a href="#group-by-average" id="toc-group-by-average" class="nav-link" data-scroll-target="#group-by-average">Group by average</a></li>
+  <li><a href="#randomization-inference-simulate-the-sharp-null-hypothesis" id="toc-randomization-inference-simulate-the-sharp-null-hypothesis" class="nav-link" data-scroll-target="#randomization-inference-simulate-the-sharp-null-hypothesis">Randomization inference: Simulate the sharp null hypothesis</a></li>
+  <li><a href="#randomization-inference-at-least-as-large" id="toc-randomization-inference-at-least-as-large" class="nav-link" data-scroll-target="#randomization-inference-at-least-as-large">Randomization inference: At least as large</a></li>
+  <li><a href="#randomization-inference-one-sided-p-value" id="toc-randomization-inference-one-sided-p-value" class="nav-link" data-scroll-target="#randomization-inference-one-sided-p-value">Randomization inference: one-sided p-value</a></li>
+  <li><a href="#randomization-inference-two-sided-p-value" id="toc-randomization-inference-two-sided-p-value" class="nav-link" data-scroll-target="#randomization-inference-two-sided-p-value">Randomization inference: two-sided p-value</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sports Cards</h1>
+<h1 class="title">Now, Analyze the Hajj Data!</h1>
 </div>
 
 
@@ -205,78 +215,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /Users/douglashughes/iSchool/experiments/homework/problem-set-2-starter</code></pre>
 </div>
-<p>In this experiment, the experimenters invited consumers at a sports card trading show to bid against one other bidder for a pair trading cards. We abstract from the multi-unit-auction details here, and simply state that the treatment auction format was theoretically predicted to produce lower bids than the control auction format. We provide you a relevant subset of data from the experiment.</p>
-<p>In this question, we are asking you to produce p-values and confidence intervals in three different ways:</p>
-<ol type="1">
-<li>Using a <code>t.test</code>;</li>
-<li>Using a regression; and,</li>
-<li>Using randomization inference.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"list_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="t-test-and-confidence-interval" class="level2">
-<h2 class="anchored" data-anchor-id="t-test-and-confidence-interval">t-test and confidence interval</h2>
-<p>Using a <code>t.test</code>, compute a 95% confidence interval for the difference between the treatment mean and the control mean. After you conduct your test, write a narrative statement, <em>using inline code evaluation</em> that describes what your tests find, and how you interpret these results. (You should be able to look into <code>str(t_test_cards)</code> to find the pieces that you want to pull to include in your written results.)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be the t.test object. Extract pieces from this object </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in-text below the code chunk.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>t_test_cards <span class="ot">&lt;-</span> <span class="st">'fill this in'</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Now that you have thought about the design of the experiment, conduct analysis that is consistent with the paper. The researchers write that they use the <span class="math inline">\(AES\)</span>, which you have reasoned about in an earlier question. I’ve given advice that instead of using this more complex concept, instead we will simply create the averages before the analysis.</p>
+<section id="state-a-null-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="state-a-null-hypothesis">State a null hypothesis</h2>
+<p>State the sharp-null hypothesis that you will be testing.</p>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="interpretation-of-confidence-interval" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation-of-confidence-interval">Interpretation of confidence interval</h2>
-<p>In your own words, what does this confidence interval mean? This can be simple language, but it has to be statistically appropriate language.</p>
+<section id="load-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-the-data">Load the data</h2>
+<p>Load the data and store it in a variable called <code>d</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"hajj_public.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-the-average-views" class="level2">
+<h2 class="anchored" data-anchor-id="create-the-average-views">Create the average views</h2>
+<p>There are several variables that contain views about people from other areas. These are stored in the variables that start with <code>views_</code>. Create a new variable called <code>views_others</code> that is the average of these variables.</p>
+<p>Create a plot of the views toward others that you this is informative about this data. It could be a histogram, a boxplot, or whatever form you this is most informative to a reader. It would be a bonus if you could also show the views toward individual groups, but the main point is to communicate information about <code>views_others</code>.</p>
+<p>What, if anything do you note about this data?</p>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="randomization-inference-and-confidence-interval" class="level2">
-<h2 class="anchored" data-anchor-id="randomization-inference-and-confidence-interval">Randomization inference, and confidence interval?</h2>
-<p>Conduct a randomization inference process, with <code>n_ri_loops = 1000</code>, using an estimator that you write by hand (i.e.&nbsp;in the same way as earlier questions). On the sharp-null distribution that this process creates, compute the 2.5% quantile and the 97.5% quantile using the function <code>quantile</code> with the appropriate vector passed to the <code>probs</code> argument. This is the randomization-based uncertainty that is generated by your design. After you conduct your test, write a narrative statement of your test results.</p>
+<section id="group-by-average" class="level2">
+<h2 class="anchored" data-anchor-id="group-by-average">Group by average</h2>
+<p>Using <code>data.table</code>, group the data by <code>won_lottery</code> and report whether views toward others are generally more positive among lottery winners or lottery non-winners. This answer should be of the form <code>d[ , .(mean_views = ...), keyby = ...]</code> where you have filled in the <code>...</code> with the appropriate functions and variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## first, do you work for the randomization inference</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_ri_loops <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the result should be a data.table with two columns and two rows</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>hajj_group_mean <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cards_ate             <span class="ot">&lt;-</span> <span class="st">'fill this in'</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>cards_ri_distribution <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> <span class="co"># numeric vector of length equal </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                                        <span class="co"># to your number of RI permutations</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cards_ri_quantiles    <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> <span class="co"># there's a built-in to pull these. </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>cards_ri_p_value      <span class="ot">&lt;-</span> <span class="st">'fill this in'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># from the `hajj_group_mean` produce a single, numeric vector that is the ate. </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check that it is numeric using `class(hajj_ate)`</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>hajj_ate        <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>How much do views about other differ between those who won the lottery and those who did not?</p>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="compare-regression-and-randomization-inference" class="level2">
-<h2 class="anchored" data-anchor-id="compare-regression-and-randomization-inference">Compare regression and randomization inference</h2>
-<p>Do you learn anything different if you regress the outcome on a binary treatment variable? To answer this question, regress <code>bid</code> on a binary variable equal to 0 for the control auction and 1 for the treatment auction and then calculate the 95% confidence interval using <em>classical standard errors</em> (in a moment you will calculate with <em>robust standard errors</em>). There are two ways to do this – you can code them by hand; or use a built-in, <code>confint</code>. After you conduct your test, write a narrative statement of your test results.</p>
+<section id="randomization-inference-simulate-the-sharp-null-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-inference-simulate-the-sharp-null-hypothesis">Randomization inference: Simulate the sharp null hypothesis</h2>
+<p>But is this a “meaningful” difference? Or, could a difference of this size have arisen from an “unlucky” randomization? Conduct 10,000 simulated random assignments under the sharp null hypothesis to find out. (Do not just copy the code from the async, think about how to write this yourself.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be a model object, class = 'lm'. </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## do your work to conduct the randomization inference here.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">## as a reminder, RI will randomly permute / assign the treatment variable</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## and recompute the test-statistic (i.e. the mean difference) under each permutation</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">## this should be a numeric vector that has a length equal to the number </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## of RI permutations you ran</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>hajj_ri_distribution <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<blockquote class="blockquote">
-<p>[Fill this in.]</p>
-</blockquote>
+<p>Create a plot of <code>hajj_ri_distribution</code> that is informative about the distribution of estimated treatment effects <em>if the sharp null hypothesis were true</em>.</p>
 </section>
-<section id="regression-with-robust-confidence-interval" class="level2">
-<h2 class="anchored" data-anchor-id="regression-with-robust-confidence-interval">Regression with robust confidence interval</h2>
-<p>Calculate the 95% confidence interval using robust standard errors, using the <code>sandwich</code> package. There is a function in <code>lmtest</code> called <code>coefci</code> that can help with this. It is also possible to do this work by hand. After you conduct your test, write a narrative statement of your test results.</p>
+<section id="randomization-inference-at-least-as-large" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-inference-at-least-as-large">Randomization inference: At least as large</h2>
+<p>How many of the simulated random assignments generate an estimated ATE that is at least as large as the actual estimate of the ATE?</p>
+<p>Conduct your work in the code chunk below, saving the results into <code>hajj_count_larger</code>, but also support your coding with a narrative description. In that narrative description (and throughout), use R’s “inline code chunks” to write your answer consistent with each time your run your code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this should be a numeric vector of length 2</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cards_robust_ci <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># length 1 numeric vector from comparison of `hajj_ate` and `hajj_ri_distribution`</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>hajj_count_larger <span class="ot">&lt;-</span> <span class="st">'fill this in'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- Inline code chunks take the following form:  -->
+<!-- The randomization inference process generated fill this in estimated effects that were larger than the true effect while assuming that the sharp null was true. These inline code chunks are opened and closed with a single back tick "`" and the letter "r" followed by a space and then the name of the variable that you want to print. You can read more about them here: https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html -->
+<blockquote class="blockquote">
+<p>[Fill this in.]</p>
+</blockquote>
+</section>
+<section id="randomization-inference-one-sided-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-inference-one-sided-p-value">Randomization inference: one-sided p-value</h2>
+<p>If there are <code>hajj_count_larger</code> (fill this in) randomizations that are larger than <code>hajj_ate</code> (fill this in), what is the <em>one-tailed</em> p-value? Both write the code in the following chunk, and include a narrative description of the result following your code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># length 1 numeric vector</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>hajj_one_tailed_p_value <span class="ot">&lt;-</span> <span class="st">'fill this in'</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
 </section>
-<section id="compare-and-contrast-results" class="level2">
-<h2 class="anchored" data-anchor-id="compare-and-contrast-results">Compare and contrast results</h2>
-<p>Characterize what you learn from each of these different methods – are the results contingent on the method of analysis that you choose?</p>
+<section id="randomization-inference-two-sided-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-inference-two-sided-p-value">Randomization inference: two-sided p-value</h2>
+<p>Now, conduct a similar test, but for a two-sided p-value. You can either use two tests, one for larger than and another for smaller than; or, you can use an absolute value (<code>abs</code>). Both write the code in the following chunk, and include a narrative description of the result following your code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># length 1 numeric vector</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>hajj_two_tailed_p_value <span class="ot">&lt;-</span> <span class="st">'fill this in'</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <blockquote class="blockquote">
 <p>[Fill this in.]</p>
 </blockquote>
@@ -525,8 +552,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../questions/03_power_analysis.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Power Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../questions/03_sports_cards.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sports Cards</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
