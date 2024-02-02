@@ -9,8 +9,9 @@ book:
     - index.qmd
     - ./questions/00_hajj_description.qmd
     - ./questions/01_paper_questions.qmd
-    - ./questions/02_sports_cards.qmd
-    - ./questions/03_power_analysis.qmd
+    - ./questions/02_paper_analysis.qmd
+    - ./questions/03_sports_cards.qmd
+    - ./questions/04_power_analysis.qmd
 
 format:
   html:
