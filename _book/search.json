@@ -194,5 +194,12 @@
     "title": "Power Analysis",
     "section": "Moar power!",
     "text": "Moar power!\nDoes buying more sample increase the power of your test? Apply the algorithm you have just written onto different sizes of data. Namely, conduct the exact same process that you have for 10 people, but now conduct the process for every 10% of recruitment size of the original data: Conduct a power analysis with a 10%, 20%, 30%, … 200% sample of the original data. (You could be more granular if you like, perhaps running this task for every 1% of the data).\n\npercentages_to_sample &lt;- 'fill this in'\n\n\n[Fill this in.]"
+  },
+  {
+    "objectID": "questions/05_solution_set.html",
+    "href": "questions/05_solution_set.html",
+    "title": "Solution Set",
+    "section": "",
+    "text": "There’s nothing to go here. But, once Alex has made it available to the class, the solution set will be available at the following link: [link]."
   }
 ]
