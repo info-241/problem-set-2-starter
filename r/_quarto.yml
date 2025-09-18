@@ -11,8 +11,6 @@ book:
     - ./questions/01_paper_questions.qmd
     - ./questions/02_paper_analysis.qmd
     - ./questions/03_sports_cards.qmd
-    - ./questions/04_power_analysis.qmd
-    - ./questions/05_solution_set.qmd
 format:
   html:
     cover-image: images/sproul.png
