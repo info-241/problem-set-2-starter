@@ -1,0 +1,61 @@
+---
+title: "Problem Set 2"
+format: 
+    html: 
+        embed-resources: true
+---
+
+```{python}
+import polars as pl
+import numpy as np
+import seaborn as sns
+```
+
+# Replication
+
+There is conversation on campus about changes in funding to the Campus Student Learning Center [link](https://www.dailycal.org/news/campus/uc-berkeley-student-learning-center-faces-20-cut-in-peer-tutoring-budget/article_c7b88536-8256-4bd2-ab84-6673986dd06c.html). One of the positive aspects that the learning center provides is support for students classes; another positive aspect is that it creates a sense of belonging and... you got it... social connection and community identity. Or so I would like to believe. But, let's look at the data! 
+
+Recently, Dekker Luberti and Stam examined whether peer-led supplimental instruction (very similar in form to what is offered at the SLC) causes increases in student's grades, but also attitudes associated with wellbeing. [Paper link](https://www.sciencedirect.com/science/article/pii/S0959475223000749). Lets engage with this paper! 
+
+## Experiment Design 
+
+1. Write a short paragraph that describes the core manipulation employed by the authors. Why do they think that this manipulation might effect outcomes they are going to measure? 
+2. Write a few short paragraphs that describe the three outcome *concepts* the authors are intersted in, and then how they choose to measure those outcomes. Write a short paragraph that identifies other concepts that the authors *could have* be interested in, but did not. Then, critically evaluate (this doesn't mean your conclusions need to be negative about it; but rather that you're thinking critcally about it) whether the ways they authors have chosen to measure outcomes are likely to capture the concepts they are measuring. 
+3. Write out the experiment design that the authors employ using the `R, N, X, O, Y` grammar from class. What are the relative strengths of this design, and what are the limitations of this  design? 
+
+# Randomization Inference 
+
+The data for the paper is available at the Open Science Foundation's repository. I have downloaded it, and stored in this repository (bad practice...) in a folder called `./data/raw/`. I have then cleaned up the data for you, so that you don't have to do all the work to clean it yourself. 
+
+Use this data, and randomization inference, to re-analyze the main findings from the paper: 
+
+1. Students who received SI received higher grades; but, 
+2. They did not score differently on well-being; or,
+3. Belonging scales. 
+
+Please show your code and results for this re-analysis in your homework submission, and include supporting text and interpretation where appropriate to describe and interpret your statistical results. 
+
+In the published analysis, the authors adjust for "demographic covariates". In this reanalysis, you dod not need to make this adjustment. Instead, you can simply model outcomes and treatment. 
+
+```{python}
+df = pl.read_parquet("./data/processed/supplimental_instruction.parquet")
+```
+
+# Power Analysis 
+
+You are intersted in getting people together for a pizza night and you're trying to get off of social media. This leaves you with a conundrum -- how will you get people to join up? The School (don't worry if you're not at the School of Information, suppose that this applies to your department too) always sends an email with informaation that the event is happening, but we get a lot of emails and there might be additional ways to communicate about this event. After a good think, you arrive at two possibilites: 
+
+1. Sending a message through a Canvas announcement to all the students who are enrolled in classes with you; and, 
+2. Putting flyers up in the hallways of the building. 
+
+Both of these are a method of broadcast communication, both signal some form of close connection, and both *could* work. Since you're not sure which is going to be effective, suppose that you're going to conduct an experiment to evaluate whether one or another is more effective. Your research design is then, put some people in control; put some people in a condition that sends class updates via bCourses; put some people in a condition that has flyers in the hallways. For now, suppose that you can individually random assign (a characteristic that is almost certainly not actually possible in this secnario). 
+
+Suppose that you know from past events that turnout is about 40%. And, suppose that there are a maximum of roughly 2,000 people that you can outreach (the School has a lot of alumni that also love pizza). Since you do not know how effective the supplimental messages will be, you want to minimize people's exposure to them, if possible. 
+
+Conduct a power analysis to answer the following questions: 
+
+1. How should assignments to treatment be allocated if you are interested in knowing whether **any** supplimental communication is effective? That is, receiving either additional message (1) or (2) from above compared to control? 
+2. How should assignments to treatment be allocated if you are intersted in knowing whether a specific communication is effective compared to control? 
+3. How should assignments to treatment be allocated if you are interested in knowing whether message (1) or (2) is more effective? 
+
+Because you are being asked to conduct these three different analyses, it seems, *to me* like a good idea to write a function that will conduct a power analysis given inputs that capture assumptions about the world. In answering each of the questions above, produce a plot (or plots) that show participants on the x-axis, power on the y-axis, and possible effect sizes as a color feature for points/lines in the plot. 

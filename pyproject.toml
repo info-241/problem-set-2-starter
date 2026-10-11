@@ -1,0 +1,10 @@
+[project]
+name = "problem_set_2"
+version = "0.1.0"
+requires-python = ">= 3.14.0"
+dependencies = [
+    "jupyter>=1.1.1",
+    "numpy>=2.5.3",
+    "polars>=2.0.0",
+    "seaborn>=0.13.2",
+]
